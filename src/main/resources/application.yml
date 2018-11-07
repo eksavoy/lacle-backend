@@ -1,0 +1,10 @@
+spring:
+  flyway:
+    enabled: true
+  profiles:
+    active: dev
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
