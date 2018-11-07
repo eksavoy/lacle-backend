@@ -9,7 +9,17 @@ import javax.persistence.*;
 @Table(name = "STUDENTS")
 @Getter
 @Setter
-public class Student extends Default{
+public class Student{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID", updatable = false, nullable = false, unique = true)
+    private Long id;
+
+    @Column(name = "FIRST_NAME", nullable = false)
+    private String firstName;
+
+    @Column(name = "LAST_NAME", nullable = false)
+    private String lastName;
 
 }
