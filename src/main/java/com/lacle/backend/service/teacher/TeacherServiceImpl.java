@@ -24,7 +24,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Teacher> getAll(Long id) {
+    public List<Teacher> getAll() {
         List<Teacher> teachers = new LinkedList<>();
         teacherRepository.findAll().iterator().forEachRemaining(teachers::add);
         return teachers;

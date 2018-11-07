@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Student> getAll(Long id) {
+    public List<Student> getAll() {
         List<Student> students = new LinkedList<>();
         studentRepository.findAll().iterator().forEachRemaining(students::add);
         return students;

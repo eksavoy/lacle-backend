@@ -24,7 +24,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Room> getAll(Long id) {
+    public List<Room> getAll() {
         List<Room> rooms = new LinkedList<>();
         roomRepository.findAll().iterator().forEachRemaining(rooms::add);
         return rooms;

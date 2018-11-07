@@ -6,7 +6,7 @@ public interface DefaultService<T> {
 
     T get(Long id);
 
-    List<T> getAll(Long id);
+    List<T> getAll();
 
     void create(T object);
 
