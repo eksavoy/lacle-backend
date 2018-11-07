@@ -1,5 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/lacle
+    url: jdbc:postgresql://localhost:5432/lacle_dev
     username: lacle
     password: lacle
+  flyway:
+    url: jdbc:postgresql://localhost:5432/lacle_dev
+    user: lacle
+    password: lacle
+    baseline-on-migrate: true
