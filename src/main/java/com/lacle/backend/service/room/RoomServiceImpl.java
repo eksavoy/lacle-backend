@@ -19,7 +19,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     @Transactional(readOnly = true)
     public Room get(Long id) {
-        return roomRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException());
+        return roomRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Room", "Id", id));
     }
 
     @Override

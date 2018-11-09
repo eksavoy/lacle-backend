@@ -19,7 +19,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     @Transactional(readOnly = true)
     public Teacher get(Long id) {
-        return teacherRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException());
+        return teacherRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Teacher", "Id", id));
     }
 
     @Override

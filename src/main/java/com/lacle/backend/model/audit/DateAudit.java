@@ -16,7 +16,7 @@ import java.time.Instant;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(
-        value = {"createAt", "updateAt"}
+        value = {"createdAt", "updateAt"}
 )
 @Getter
 @Setter
