@@ -16,8 +16,8 @@ public class RoomControllerSecured {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void create(@RequestBody Room room){
-        roomService.create(room);
+    public Room create(@RequestBody Room room){
+        return roomService.create(room);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)

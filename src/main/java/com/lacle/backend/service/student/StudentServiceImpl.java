@@ -39,8 +39,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public void create(Student object) {
-        studentRepository.save(object);
+    public Student create(Student object) {
+        return studentRepository.save(object);
     }
 
     @Override
