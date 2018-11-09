@@ -9,6 +9,6 @@ spring:
     user: lacle
     password: lacle
     baseline-on-migrate: true
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: debug
