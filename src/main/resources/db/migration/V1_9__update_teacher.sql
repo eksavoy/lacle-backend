@@ -1,0 +1,4 @@
+ALTER TABLE teachers ADD COLUMN created_by BIGSERIAL;
+ALTER TABLE teachers ADD COLUMN updated_by BIGSERIAL;
+ALTER TABLE teachers ADD COLUMN created_at TIMESTAMP;
+ALTER TABLE teachers ADD COLUMN updated_at TIMESTAMP;
