@@ -16,18 +16,6 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody
-    List<Room> getAll(){
-        return roomService.getAll();
-    }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody
-    Room get(@PathVariable Long id){
-        return roomService.get(id);
-    }
 
 }
