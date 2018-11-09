@@ -26,7 +26,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional(readOnly = true)
     public Student get(Long id) {
-        return studentRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException());
+        return studentRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Student", "Id", id));
     }
 
     @Override

@@ -1,0 +1,13 @@
+CREATE TABLE users (
+  id  BIGSERIAL NOT NULL,
+  name VARCHAR(40) NOT NULL,
+  username VARCHAR(15) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL,
+  PRIMARY KEY(id)
+);
+
+ALTER TABLE IF EXISTS users ADD CONSTRAINT user_username UNIQUE (username);
+ALTER TABLE IF EXISTS users ADD CONSTRAINT user_email UNIQUE (email);
