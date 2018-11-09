@@ -27,7 +27,7 @@ public class Student extends UserDateAudit {
     private String lastName;
 
     @OneToMany(
-            mappedBy = "Student",
+            mappedBy = "student",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             orphanRemoval = true

@@ -1,5 +1,6 @@
 package com.lacle.backend.model;
 
+import com.lacle.backend.model.audit.UserDateAudit;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import java.time.Instant;
 @Table(name = "lessons")
 @Getter
 @Setter
-public class Lesson {
+public class Lesson extends UserDateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
