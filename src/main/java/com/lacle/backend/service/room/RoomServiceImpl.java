@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     @Transactional(readOnly = true)
     public Room get(Long id) {
-        return roomRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Room", "Id", id));
+        return roomRepository.getOne(id);
     }
 
     @Override
@@ -32,13 +33,13 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     @Transactional
-    public Room create(Room object) {
+    public Room create(@Valid Room object) {
         return roomRepository.save(object);
     }
 
     @Override
     @Transactional
-    public Room update(Room object) {
+    public Room update(@Valid Room object) {
         return roomRepository.save(object);
     }
 
@@ -50,7 +51,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     @Transactional
-    public void delete(Room object) {
+    public void delete(@Valid Room object) {
         roomRepository.delete(object);
     }
 }

@@ -12,6 +12,7 @@ spring:
 app:
   jwtSecret: JWTSuperSecretKey
   jwtExpirationInMs: 604800000
+
 #logging:
 #  level:
 #    root: debug

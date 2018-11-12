@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class LessonServiceImpl implements LessonService {
     @Override
     @Transactional(readOnly = true)
     public Lesson get(Long id) {
-        return repository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Lesson", "Id", id));
+        return repository.getOne(id);
     }
 
     @Override
@@ -38,13 +39,13 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     @Transactional
-    public Lesson create(Lesson object) {
+    public Lesson create(@Valid Lesson object) {
         return repository.save(object);
     }
 
     @Override
     @Transactional
-    public Lesson update(Lesson object) {
+    public Lesson update(@Valid Lesson object) {
         return repository.save(object);
     }
 
@@ -55,7 +56,7 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public void delete(Lesson object) {
+    public void delete(@Valid Lesson object) {
         repository.delete(object);
     }
 }

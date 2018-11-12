@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     @Transactional(readOnly = true)
     public Teacher get(Long id) {
-        return teacherRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Teacher", "Id", id));
+        return teacherRepository.getOne(id);
     }
 
     @Override
@@ -32,24 +33,24 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     @Transactional
-    public Teacher create(Teacher object) {
+    public Teacher create(@Valid Teacher object) {
         return teacherRepository.save(object);
     }
 
     @Override
     @Transactional
-    public Teacher update(Teacher object) {
+    public Teacher update(@Valid Teacher object) {
         return teacherRepository.save(object);
     }
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void delete(@Valid Long id) {
         teacherRepository.deleteById(id);
     }
 
     @Override
-    public void delete(Teacher object) {
+    public void delete(@Valid Teacher object) {
         teacherRepository.delete(object);
     }
 }
