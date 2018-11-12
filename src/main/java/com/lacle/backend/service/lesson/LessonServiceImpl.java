@@ -27,7 +27,7 @@ public class LessonServiceImpl implements LessonService {
     @Override
     @Transactional(readOnly = true)
     public Lesson get(Long id) {
-        return repository.getOne(id);
+        return repository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Lesson", "ID", id));
     }
 
     @Override

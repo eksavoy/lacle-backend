@@ -11,11 +11,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/room")
-public class RoomController {
+public class RoomController implements DefaultController<Room> {
 
     @Autowired
     private RoomService roomService;
 
 
+    @Override
+    public List<Room> getAll() {
+        return roomService.getAll();
+    }
 
+    @Override
+    public Room get(Long id) {
+        return roomService.get(id);
+    }
+
+    @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Room getByNumber(@RequestParam(name = "number", required = true) Integer number){
+        return roomService.findByNumber(number);
+    }
 }

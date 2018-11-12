@@ -20,7 +20,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     @Transactional(readOnly = true)
     public Room get(Long id) {
-        return roomRepository.getOne(id);
+        return roomRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Room", "id", id));
     }
 
     @Override
@@ -53,5 +53,10 @@ public class RoomServiceImpl implements RoomService {
     @Transactional
     public void delete(@Valid Room object) {
         roomRepository.delete(object);
+    }
+
+    @Override
+    public Room findByNumber(Integer number) {
+        return roomRepository.findByNumber(number).orElseThrow(() -> new RessourceNotFoundException("Room", "number", number));
     }
 }
