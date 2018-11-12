@@ -3,8 +3,11 @@ package com.lacle.backend.model;
 import com.lacle.backend.model.audit.UserDateAudit;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -22,5 +25,14 @@ public class Student extends UserDateAudit {
 
     @Column(name = "last_name", nullable = false)
     private String lastName;
+
+    @OneToMany(
+            mappedBy = "student",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
+    )
+    @Fetch(FetchMode.SELECT)
+    private List<Lesson> lessons;
 
 }

@@ -32,8 +32,8 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     @Transactional
-    public void create(Room object) {
-        roomRepository.save(object);
+    public Room create(Room object) {
+        return roomRepository.save(object);
     }
 
     @Override

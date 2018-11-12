@@ -9,33 +9,28 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/secured/room")
-public class RoomControllerSecured {
+public class RoomControllerSecured  implements DefaultSecureController<Room>{
 
     @Autowired
     private RoomService roomService;
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.CREATED)
-    public void create(@RequestBody Room room){
-        roomService.create(room);
+    @Override
+    public Room create(Room object) {
+        return roomService.create(object);
     }
 
-    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody Room update(@RequestBody Room room){
-        return roomService.update(room);
+    @Override
+    public Room update(Room object) {
+        return roomService.update(object);
     }
 
-    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void delete (@RequestBody Room room){
-        roomService.delete(room);
+    @Override
+    public void delete(Room object) {
+        roomService.delete(object);
     }
 
-    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    public void delete(@PathVariable Long id){
+    @Override
+    public void delete(Long id) {
         roomService.delete(id);
     }
-
 }

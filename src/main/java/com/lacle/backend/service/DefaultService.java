@@ -8,7 +8,7 @@ public interface DefaultService<T> {
 
     List<T> getAll();
 
-    void create(T object);
+    T create(T object);
 
     T update(T object);
 
