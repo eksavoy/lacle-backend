@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     @Transactional(readOnly = true)
     public Student get(Long id) {
-        return studentRepository.findById(id).orElseThrow(() -> new RessourceNotFoundException("Student", "Id", id));
+        return studentRepository.getOne(id);
     }
 
     @Override
@@ -39,13 +40,13 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public Student create(Student object) {
+    public Student create(@Valid Student object) {
         return studentRepository.save(object);
     }
 
     @Override
     @Transactional
-    public Student update(Student object) {
+    public Student update(@Valid Student object) {
         return studentRepository.save(object);
     }
 
@@ -57,7 +58,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     @Transactional
-    public void delete(Student object) {
+    public void delete(@Valid Student object) {
         studentRepository.delete(object);
     }
 }

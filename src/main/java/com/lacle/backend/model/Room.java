@@ -8,6 +8,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -21,6 +22,7 @@ public class Room extends UserDateAudit {
     private Long id;
 
     @Column(name = "number", unique = true, nullable = false)
+    @NotNull
     private Integer number;
 
     @OneToMany(
@@ -31,4 +33,35 @@ public class Room extends UserDateAudit {
     )
     @Fetch(FetchMode.SELECT)
     private List<Lesson> lessons;
+
+    public Room(Integer number) {
+        this.number = number;
+    }
+
+    public Room() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public List<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
+    }
 }
