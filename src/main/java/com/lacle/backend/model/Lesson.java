@@ -1,8 +1,7 @@
 package com.lacle.backend.model;
 
 import com.lacle.backend.model.audit.UserDateAudit;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,8 +9,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "lessons")
-@Getter
-@Setter
+@Data
 public class Lesson extends UserDateAudit {
 
     @Id
