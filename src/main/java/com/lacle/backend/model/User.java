@@ -2,6 +2,7 @@ package com.lacle.backend.model;
 
 import com.lacle.backend.model.audit.DateAudit;
 import lombok.AccessLevel;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
@@ -22,8 +23,7 @@ import java.util.Set;
                 "email"
         })
 })
-@Getter()
-@Setter()
+@Data
 public class User extends DateAudit {
 
     @Id

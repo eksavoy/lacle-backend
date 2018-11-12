@@ -1,6 +1,7 @@
 package com.lacle.backend.model;
 
 import com.lacle.backend.model.audit.UserDateAudit;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Fetch;
@@ -11,8 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "rooms")
-@Getter
-@Setter
+@Data
 public class Room extends UserDateAudit {
 
     @Id

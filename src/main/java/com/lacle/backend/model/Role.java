@@ -1,5 +1,6 @@
 package com.lacle.backend.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
@@ -8,8 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
-@Getter
-@Setter
+@Data
 public class Role {
 
     @Id
